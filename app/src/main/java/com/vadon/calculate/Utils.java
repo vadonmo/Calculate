@@ -128,6 +128,13 @@ class Utils {
         result += format("s1：%.3f\n", s1);
         result += format("s2：%.3f\n", s2);
         result += format("s3：%.3f\n", s3);
+        if (x3 > x) {
+            result += format("转到左边线角度：%s\n", toDegreesStr(180 + z1));
+            result += format("转到右边线角度：%s\n", toDegreesStr(180 - z2));
+        } else {
+            result += format("转到左边线角度：%s\n", toDegreesStr(360 - z1));
+            result += format("转到右边线角度：%s\n", toDegreesStr(z2));
+        }
         if (nh3 == null) return result + "nh3不能为空";
         if (nhg == null) return result + "仪器高不能为空";
         if (nz11 == null) return result + "左边线天顶角不能为空";
@@ -146,13 +153,7 @@ class Utils {
         centerH = s3 * Math.tan(Math.toRadians(90 - z31)) + tempH;
         result += format("中间线点高程：%.3f\n", centerH);
 
-        if (x3 > x) {
-            result += format("转到左边线角度：%s\n", toDegreesStr(180 + z1));
-            result += format("转到右边线角度：%s\n", toDegreesStr(180 - z2));
-        } else {
-            result += format("转到左边线角度：%s\n", toDegreesStr(360 - z1));
-            result += format("转到右边线角度：%s\n", toDegreesStr(z2));
-        }
+
         return result;
     }
 

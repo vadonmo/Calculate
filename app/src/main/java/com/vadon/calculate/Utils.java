@@ -53,7 +53,7 @@ class Utils {
         x = getX(x1, x2, y1, y2);
         z = getΘ(x1, x2, y1, y2);
         result += format("x：%s\n", df.format(x));
-        result += format("θ：%s\n", df.format(z));
+        result += format("θ：%s\n", toDegreesStr(z));
         if (nx3 == null) return result + "nx3不能为空";
         if (nh == null) return result +"nh不能为空";
         x3 = nx3;

@@ -1,8 +1,10 @@
 package com.vadon.calculate;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -47,6 +49,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnCal:
+                InputMethodManager imm = (InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
                 String nx1Str = txtNx1.getText().toString().trim();
                 String ny1Str = txtNy1.getText().toString().trim();
                 String nx2Str = txtNx2.getText().toString().trim();

@@ -12,7 +12,7 @@ import static java.lang.String.format;
 class Utils {
     private static final DecimalFormat df = new DecimalFormat("#######.000");
 
-    public static String getResult1(Calculate calculate) {
+    static String getResult(Calculate calculate) {
         Double nx1 = calculate.getNx1();
         Double ny1 = calculate.getNy1();
         Double nx2 = calculate.getNx2();
@@ -33,10 +33,10 @@ class Utils {
 
         double leftH, rightH, centerH;
 
-        if (nx1 == null) return result += "nx1不能为空";
-        if (nx2 == null) return result += "nx2不能为空";
-        if (ny1 == null) return result += "ny1不能为空";
-        if (ny2 == null) return result += "ny2不能为空";
+        if (nx1 == null) return result + "nx1不能为空";
+        if (nx2 == null) return result + "nx2不能为空";
+        if (ny1 == null) return result + "ny1不能为空";
+        if (ny2 == null) return result + "ny2不能为空";
         if (ny1 > ny2) {
             x1 = nx1;
             y1 = ny1;
@@ -54,8 +54,8 @@ class Utils {
         z = getΘ(x1, x2, y1, y2);
         result += format("x：%s\n", df.format(x));
         result += format("θ：%s\n", df.format(z));
-        if (nx3 == null) return result += "nx3不能为空";
-        if (nh == null) return result += "nh不能为空";
+        if (nx3 == null) return result + "nx3不能为空";
+        if (nh == null) return result +"nh不能为空";
         x3 = nx3;
         h = nh;
 
@@ -128,9 +128,9 @@ class Utils {
         result += format("s1：%.3f\n", s1);
         result += format("s2：%.3f\n", s2);
         result += format("s3：%.3f\n", s3);
-        if (nh3 == null) return result += "nh3不能为空";
-        if (nhg == null) return result += "仪器高不能为空";
-        if (nz11 == null) return result += "左边线天顶角不能为空";
+        if (nh3 == null) return result + "nh3不能为空";
+        if (nhg == null) return result + "仪器高不能为空";
+        if (nz11 == null) return result + "左边线天顶角不能为空";
         h3 = nh3;
         hg = nhg;
         z11 = nz11;
@@ -157,7 +157,7 @@ class Utils {
     }
 
 
-    private static Double Str2Double(String s) {
+    static Double Str2Double(String s) {
         if (s.trim().length() == 0) return null;
         return Double.parseDouble(s);
     }

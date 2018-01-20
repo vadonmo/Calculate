@@ -81,7 +81,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 calculate.setNθ11(θ11);
                 calculate.setNθ21(θ21);
                 calculate.setNθ31(θ31);
-                String result = Utils.getResult1(calculate);
+                String result = Utils.getResult(calculate);
                 txtResult.setText(result);
                 break;
             case R.id.btnClear:

@@ -1,15 +1,15 @@
 package com.vadon.calculate;
 
 import java.text.DecimalFormat;
-import java.util.Objects;
 
 import static java.lang.String.format;
 
 /**
+ * 算法工具类
  * Created by vadon on 2018/1/20.
  */
 
-public class Utils {
+class Utils {
     private static final DecimalFormat df = new DecimalFormat("#######.000");
 
     public static String getResult1(Calculate calculate) {
@@ -157,23 +157,23 @@ public class Utils {
     }
 
 
-    public static Double Str2Double(String s) {
+    private static Double Str2Double(String s) {
         if (s.trim().length() == 0) return null;
         return Double.parseDouble(s);
     }
 
-    public static String toDegreesStr(double value) {
+    private static String toDegreesStr(double value) {
         int d = (int) value;// 度
         int m = (int) ((value - d) * 60);
         int s = (int) ((value - d) * 3600 % 60);
         return "" + d + "°" + m + "′" + s + "″";
     }
 
-    public static Double getX(Double x1, Double x2, Double y1, Double y2) {
+    private static Double getX(Double x1, Double x2, Double y1, Double y2) {
         return (x1 - y1) * (x1 - x2) / (y1 - y2);
     }
 
-    public static Double getΘ(Double x1, Double x2, Double y1, Double y2) {
+    private static Double getΘ(Double x1, Double x2, Double y1, Double y2) {
         return Math.toDegrees(Math.atan(Math.abs((y1 - y2) / (x1 - x2))));
     }
 }

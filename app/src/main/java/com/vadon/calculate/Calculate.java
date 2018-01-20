@@ -1,21 +1,22 @@
 package com.vadon.calculate;
 
 /**
+ * 实体类
  * Created by vadon on 2018/1/20.
  */
 
-public class Calculate {
-    Double nx1;
-    Double ny1;
-    Double nx2;
-    Double ny2;
-    Double nx3;
-    Double nh;
-    Double nh3;
-    Double nhg;//仪器高
-    Double nθ11;//左边线天顶角
-    Double nθ21;//右边线天顶角
-    Double nθ31;//中间线天顶角
+class Calculate {
+    private Double nx1;
+    private Double ny1;
+    private Double nx2;
+    private Double ny2;
+    private Double nx3;
+    private Double nh;
+    private Double nh3;
+    private Double nhg;//仪器高
+    private Double nθ11;//左边线天顶角
+    private Double nθ21;//右边线天顶角
+    private Double nθ31;//中间线天顶角
 
     public Double getNx1() {
         return nx1;

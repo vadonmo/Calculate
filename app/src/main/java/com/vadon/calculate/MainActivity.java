@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -21,7 +22,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private TextView txtnθ11;
     private TextView txtnθ21;
     private TextView txtnθ31;
-    private TextView txtResult;
+    private TextView txtLeftR;
+    private TextView txtRightR;
+    private TextView txtLeftH;
+    private TextView txtRightH;
+    private TextView txtCenterH;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,19 +43,28 @@ public class MainActivity extends Activity implements View.OnClickListener {
         txtnθ11 = findViewById(R.id.txt_nθ11);
         txtnθ21 = findViewById(R.id.txt_nθ21);
         txtnθ31 = findViewById(R.id.txt_nθ31);
-        txtResult = findViewById(R.id.txt_result);
+        txtLeftR = findViewById(R.id.leftR);
+        txtRightR = findViewById(R.id.rightR);
+        txtLeftH = findViewById(R.id.leftH);
+        txtRightH = findViewById(R.id.rightH);
+        txtCenterH = findViewById(R.id.centerH);
         Button btnCalculate = findViewById(R.id.btnCal);
         Button btnClear = findViewById(R.id.btnClear);
         btnClear.setOnClickListener(this);
         btnCalculate.setOnClickListener(this);
     }
-
+    //隐藏虚拟键盘
+    public static void HideKeyboard(View v){
+        InputMethodManager imm = ( InputMethodManager) v.getContext( ).getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm.isActive()) {
+            imm.hideSoftInputFromWindow( v.getApplicationWindowToken() , 0 );
+        }
+    }
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnCal:
-                InputMethodManager imm = (InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+                HideKeyboard(view);
                 String nx1Str = txtNx1.getText().toString().trim();
                 String ny1Str = txtNy1.getText().toString().trim();
                 String nx2Str = txtNx2.getText().toString().trim();
@@ -85,11 +99,28 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 calculate.setNθ11(θ11);
                 calculate.setNθ21(θ21);
                 calculate.setNθ31(θ31);
-                String result = Utils.getResult(calculate);
-                txtResult.setText(result);
+                Result result = Utils.getResult(calculate);
+                String leftR = result.getLeftR();
+                String rightR = result.getRightR();
+                String leftH = result.getLeftH();
+                String rightH = result.getRightH();
+                String centerH = result.getCenterH();
+                if (result.getMsg() != null){
+                    Toast.makeText(this,result.getMsg(),Toast.LENGTH_LONG).show();
+                    return;
+                }
+                txtLeftR.setText(leftR == null ? "" : leftR);
+                txtLeftH.setText(leftH == null ? "" : leftH);
+                txtRightR.setText(rightR == null ? "" : rightR);
+                txtRightH.setText(rightH == null ? "" : rightH);
+                txtCenterH.setText(centerH == null ? "" : centerH);
                 break;
             case R.id.btnClear:
-                txtResult.setText("");
+                txtLeftR.setText("");
+                txtLeftH.setText("");
+                txtRightR.setText("");
+                txtRightH.setText("");
+                txtCenterH.setText("");
                 txtNx1.setText("");
                 txtNy1.setText("");
                 txtNx2.setText("");

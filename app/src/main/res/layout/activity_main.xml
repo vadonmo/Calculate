@@ -250,13 +250,104 @@
                 android:text="@string/clear" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/txt_result"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:lineSpacingExtra="9dp"
-            android:padding="10dp"
-            android:text=""
-            android:textIsSelectable="true" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="9dp"
+                android:padding="10dp"
+                android:text="转到左边线角度：" />
+
+            <TextView
+                android:id="@+id/leftR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="9dp"
+                android:padding="10dp"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="9dp"
+                android:padding="10dp"
+                android:text="转到右边线角度：" />
+
+            <TextView
+                android:id="@+id/rightR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="9dp"
+                android:padding="10dp"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="9dp"
+                android:padding="10dp"
+                android:text="左边线点高程：" />
+
+            <TextView
+                android:id="@+id/leftH"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="9dp"
+                android:padding="10dp"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="9dp"
+                android:padding="10dp"
+                android:text="右边线点高程：" />
+
+            <TextView
+                android:id="@+id/rightH"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="9dp"
+                android:padding="10dp"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="9dp"
+                android:padding="10dp"
+                android:text="中间线点高程：" />
+
+            <TextView
+                android:id="@+id/centerH"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="9dp"
+                android:padding="10dp"
+                android:text="" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

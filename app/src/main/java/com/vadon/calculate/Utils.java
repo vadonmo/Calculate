@@ -12,7 +12,8 @@ import static java.lang.String.format;
 class Utils {
     private static final DecimalFormat df = new DecimalFormat("#######.000");
 
-    static String getResult(Calculate calculate) {
+    static Result getResult(Calculate calculate) {
+        Result result1 = new Result();
         Double nx1 = calculate.getNx1();
         Double ny1 = calculate.getNy1();
         Double nx2 = calculate.getNx2();
@@ -33,10 +34,22 @@ class Utils {
 
         double leftH, rightH, centerH;
 
-        if (nx1 == null) return result + "nx1不能为空";
-        if (nx2 == null) return result + "nx2不能为空";
-        if (ny1 == null) return result + "ny1不能为空";
-        if (ny2 == null) return result + "ny2不能为空";
+        if (nx1 == null) {
+            result1.setMsg("nx1不能为空");
+            return result1;
+        }
+        if (nx2 == null) {
+            result1.setMsg("nx2不能为空");
+            return result1;
+        }
+        if (ny1 == null) {
+            result1.setMsg("ny1不能为空");
+            return result1;
+        }
+        if (ny2 == null) {
+            result1.setMsg("ny2不能为空");
+            return result1;
+        }
         if (ny1 > ny2) {
             x1 = nx1;
             y1 = ny1;
@@ -48,14 +61,21 @@ class Utils {
             x2 = nx1;
             y2 = ny1;
         } else {
-            return "平行";
+            result1.setMsg("平行");
+            return result1;
         }
         x = getX(x1, x2, y1, y2);
         z = getΘ(x1, x2, y1, y2);
         result += format("x：%s\n", df.format(x));
         result += format("θ：%s\n", toDegreesStr(z));
-        if (nx3 == null) return result + "nx3不能为空";
-        if (nh == null) return result +"nh不能为空";
+        if (nx3 == null) {
+            result1.setMsg("nx3不能为空");
+            return result1;
+        }
+        if (nh == null) {
+            result1.setMsg("边线偏距不能为空");
+            return result1;
+        }
         x3 = nx3;
         h = nh;
 
@@ -110,7 +130,8 @@ class Utils {
                 }
             }
         } else {
-            return "x = x3：error\n";
+            result1.setMsg("x = x3：error");
+            return result1;
         }
         if (a1 != null) {
             z1 = Math.toDegrees(Math.atan(h / a1));
@@ -123,38 +144,62 @@ class Utils {
         result += z1Str;
         result += z2Str;
         s3 = Math.abs(x - x3);
-        s2 = h / Math.sin(z2);
-        s1 = h / Math.sin(z1);
+        s2 = h / Math.sin(Math.toRadians(z2));
+        s1 = h / Math.sin(Math.toRadians(z1));
         result += format("s1：%.3f\n", s1);
         result += format("s2：%.3f\n", s2);
         result += format("s3：%.3f\n", s3);
+        String leftR = null;
+        String rightR = null;
         if (x3 > x) {
+            leftR = toDegreesStr(180 + z1);
+            rightR = toDegreesStr(180 - z2);
             result += format("转到左边线角度：%s\n", toDegreesStr(180 + z1));
             result += format("转到右边线角度：%s\n", toDegreesStr(180 - z2));
         } else {
+            leftR = toDegreesStr(180 - z1);
+            rightR = toDegreesStr(z2);
             result += format("转到左边线角度：%s\n", toDegreesStr(360 - z1));
             result += format("转到右边线角度：%s\n", toDegreesStr(z2));
         }
-        if (nh3 == null) return result + "nh3不能为空";
-        if (nhg == null) return result + "仪器高不能为空";
-        if (nz11 == null) return result + "左边线天顶角不能为空";
+        result1.setLeftR(leftR);
+        result1.setRightR(rightR);
+        if (nh3 == null) {
+            result1.setMsg("nh3不能为空");
+            return result1;
+        }
+        if (nhg == null) {
+            //result1.setMsg("仪器高不能为空");
+            return result1;
+        }
+        if (nz11 == null) {
+            //result1.setMsg("左边线天顶角不能为空");
+            return result1;
+        }
         h3 = nh3;
         hg = nhg;
         z11 = nz11;
         double tempH = h3 + hg;
         leftH = s1 * Math.tan(Math.toRadians(90 - z11)) + tempH;
         result += format("左边线点高程：%.3f\n", leftH);
-        if (nz21 == null) return result += "右边线天顶角不能为空";
+        result1.setLeftH(format("%.3f", leftH));
+        if (nz21 == null) {
+            //result1.setMsg("右边线天顶角不能为空");
+            return result1;
+        }
         z21 = nz21;
         rightH = s2 * Math.tan(Math.toRadians(90 - z21)) + tempH;
         result += format("右边线点高程：%.3f\n", rightH);
-        if (nz31 == null) return result += "中间线天顶角不能为空";
+        result1.setRightH(format("%.3f", rightH));
+        if (nz31 == null) {
+            //result1.setMsg("中间线天顶角不能为空");
+            return result1;
+        }
         z31 = nz31;
         centerH = s3 * Math.tan(Math.toRadians(90 - z31)) + tempH;
         result += format("中间线点高程：%.3f\n", centerH);
-
-
-        return result;
+        result1.setCenterH(format("%.3f", centerH));
+        return result1;
     }
 
 
@@ -171,7 +216,7 @@ class Utils {
     }
 
     private static Double getX(Double x1, Double x2, Double y1, Double y2) {
-        return (x1 - y1) * (x1 - x2) / (y1 - y2);
+        return x1 - y1 * (x1 - x2) / (y1 - y2);
     }
 
     private static Double getΘ(Double x1, Double x2, Double y1, Double y2) {

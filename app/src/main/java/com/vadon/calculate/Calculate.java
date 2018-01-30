@@ -11,7 +11,7 @@ class Calculate {
     private Double nx2;
     private Double ny2;
     private Double nx3;
-    private Double nh;
+    private Double nh;//边线偏距
     private Double nh3;
     private Double nhg;//仪器高
     private Double nθ11;//左边线天顶角

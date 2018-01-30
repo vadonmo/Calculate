@@ -42,7 +42,7 @@ class Utils {
             y1 = ny1;
             x2 = nx2;
             y2 = ny2;
-        } else if (ny1 > ny2) {
+        } else if (ny1 < ny2) {
             x1 = nx2;
             y1 = ny2;
             x2 = nx1;

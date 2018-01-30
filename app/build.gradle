@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'vadonmo'
+            keyPassword 'vadonmo'
+            storeFile file('E:/Demo/vadonmo.jks')
+            storePassword 'wangweidong'
+        }
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.vadon.calculate"
@@ -17,6 +25,21 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    signingConfigs {
+        debug {
+            storeFile file("./vadonmo.jks")  //签名文件
+            storePassword "vadonmo"
+            keyAlias "vadonmo"
+            keyPassword "wangweidong"
+        }
+
+        release {
+            storeFile file("./vadonmo.jks")  //签名文件
+            storePassword "vadonmo"
+            keyAlias "vadonmo"
+            keyPassword "wangweidong"
         }
     }
 }

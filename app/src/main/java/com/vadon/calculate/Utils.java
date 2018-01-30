@@ -68,11 +68,11 @@ class Utils {
                 if (x3 < x21) {
                     a2 = x - x3 - hTanRa;
                 } else {
-                    z2 = 90 + Math.atan((x3 - x21) / h);
+                    z2 = 90 + Math.toDegrees(Math.atan((x3 - x21) / h));
                     z2Str = format("θ2：%s\n", toDegreesStr(z2));
                 }
             } else if (z == 90) {
-                z1 = Math.atan(h / (x - x3));
+                z1 = Math.toDegrees(Math.atan(h / (x - x3)));
                 z2 = z1;
             } else {
                 x11 = x - hTanRa;
@@ -80,7 +80,7 @@ class Utils {
                     a1 = x - x3 - hTanRa;
                     a2 = x - x3 + hTanRa;
                 } else {
-                    z1 = 90 + Math.atan((x3 - x11) / h);
+                    z1 = 90 + Math.toDegrees(Math.atan((x3 - x11) / h));
                     a2 = x - hTanRa;
                     z1Str = format("θ1：%s\n", toDegreesStr(z1));
                 }
@@ -92,11 +92,11 @@ class Utils {
                 if (x3 > x11) {
                     a1 = x3 - x - hTanRa;
                 } else {
-                    z1 = 90 + Math.atan((x11 - x3) / h);
+                    z1 = 90 + Math.toDegrees(Math.atan((x11 - x3) / h));
                     z1Str = format("θ1：%s\n", toDegreesStr(z1));
                 }
             } else if (z == 90) {
-                z1 = Math.atan(h / (x3 - x));
+                z1 = Math.toDegrees(Math.atan(h / (x3 - x)));
                 z2 = z1;
             } else {
                 x21 = x + hTanRa;
@@ -104,7 +104,7 @@ class Utils {
                     a1 = x3 - x + hTanRa;
                     a2 = x3 - x - hTanRa;
                 } else {
-                    z2 = 90 + Math.atan((x21 - x3) / h);
+                    z2 = 90 + Math.toDegrees(Math.atan((x21 - x3) / h));
                     a1 = x3 - x + hTanRa;
                     z2Str = format("θ2：%s\n", toDegreesStr(z2));
                 }
@@ -113,11 +113,11 @@ class Utils {
             return "x = x3：error\n";
         }
         if (a1 != null) {
-            z1 = Math.atan(h / a1);
+            z1 = Math.toDegrees(Math.atan(h / a1));
             z1Str = format("θ1：%s\n", toDegreesStr(z1));
         }
         if (a2 != null) {
-            z2 = Math.atan(h / a2);
+            z2 = Math.toDegrees(Math.atan(h / a2));
             z2Str = format("θ2：%s\n", toDegreesStr(z2));
         }
         result += z1Str;

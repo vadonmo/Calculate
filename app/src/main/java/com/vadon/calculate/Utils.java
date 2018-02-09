@@ -157,7 +157,7 @@ class Utils {
             result += format("转到左边线角度：%s\n", toDegreesStr(180 + z1));
             result += format("转到右边线角度：%s\n", toDegreesStr(180 - z2));
         } else {
-            leftR = toDegreesStr(180 - z1);
+            leftR = toDegreesStr(360 - z1);
             rightR = toDegreesStr(z2);
             result += format("转到左边线角度：%s\n", toDegreesStr(360 - z1));
             result += format("转到右边线角度：%s\n", toDegreesStr(z2));

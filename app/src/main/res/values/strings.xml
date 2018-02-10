@@ -8,6 +8,9 @@
     <string name="nh">边线偏距:</string>
     <string name="nh3">nh3:</string>
     <string name="nhg">仪器高:</string>
+    <string name="r">°</string>
+    <string name="min">′</string>
+    <string name="sec">″</string>
     <string name="n_11">左边线天顶角:</string>
     <string name="n_21">右边线天顶角:</string>
     <string name="n_31">中间线天顶角:</string>

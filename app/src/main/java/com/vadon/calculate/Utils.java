@@ -222,4 +222,12 @@ class Utils {
     private static Double getΘ(Double x1, Double x2, Double y1, Double y2) {
         return Math.toDegrees(Math.atan(Math.abs((y1 - y2) / (x1 - x2))));
     }
+
+    static Double toDegrees(Double r, Double m, Double s) {
+        if (r == null && m == null && s == null) return null;
+        if (r == null) r = 0d;
+        if (m == null) m = 0d;
+        if (s == null) s = 0d;
+        return r + m * (1 / 60d) + s * (1 / 3600d);
+    }
 }

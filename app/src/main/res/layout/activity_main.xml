@@ -30,7 +30,7 @@
                         android:text="@string/nx1" />
 
                     <EditText
-                        android:id="@+id/txt_nx1"
+                        android:id="@+id/edit_nx1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="6"
@@ -48,7 +48,7 @@
                         android:text="@string/nx2" />
 
                     <EditText
-                        android:id="@+id/txt_nx2"
+                        android:id="@+id/edit_nx2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="6"
@@ -66,7 +66,7 @@
                         android:text="@string/nx3" />
 
                     <EditText
-                        android:id="@+id/txt_nx3"
+                        android:id="@+id/edit_nx3"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="6"
@@ -84,7 +84,7 @@
                         android:text="@string/nh" />
 
                     <EditText
-                        android:id="@+id/txt_nh"
+                        android:id="@+id/edit_nh"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="6"
@@ -110,7 +110,7 @@
                         android:text="@string/ny1" />
 
                     <EditText
-                        android:id="@+id/txt_ny1"
+                        android:id="@+id/edit_ny1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="6"
@@ -128,7 +128,7 @@
                         android:text="@string/ny2" />
 
                     <EditText
-                        android:id="@+id/txt_ny2"
+                        android:id="@+id/edit_ny2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="6"
@@ -146,7 +146,7 @@
                         android:text="@string/nh3" />
 
                     <EditText
-                        android:id="@+id/txt_nh3"
+                        android:id="@+id/edit_nh3"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="6"
@@ -164,7 +164,7 @@
                         android:text="@string/nhg" />
 
                     <EditText
-                        android:id="@+id/txt_nhg"
+                        android:id="@+id/edit_nhg"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="6"
@@ -186,12 +186,40 @@
                 android:text="@string/n_11" />
 
             <EditText
-                android:id="@+id/txt_nθ11"
+                android:id="@+id/edit_nθ11"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
                 android:inputType="numberSigned|numberDecimal" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/r" />
+
+            <EditText
+                android:id="@+id/edit_nθ11_min"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:inputType="numberSigned|numberDecimal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/min" />
+
+            <EditText
+                android:id="@+id/edit_nθ11_sec"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:inputType="numberSigned|numberDecimal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sec" />
         </LinearLayout>
 
         <LinearLayout
@@ -204,12 +232,39 @@
                 android:text="@string/n_21" />
 
             <EditText
-                android:id="@+id/txt_nθ21"
+                android:id="@+id/edit_nθ21"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:inputType="numberSigned|numberDecimal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/r" />
+
+            <EditText
+                android:id="@+id/edit_nθ21_min"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
                 android:inputType="numberSigned|numberDecimal" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/min" />
+
+            <EditText
+                android:id="@+id/edit_nθ21_sec"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:inputType="numberSigned|numberDecimal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sec" />
         </LinearLayout>
 
         <LinearLayout
@@ -222,12 +277,39 @@
                 android:text="@string/n_31" />
 
             <EditText
-                android:id="@+id/txt_nθ31"
+                android:id="@+id/edit_nθ31"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:inputType="numberSigned|numberDecimal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/r" />
+
+            <EditText
+                android:id="@+id/edit_nθ31_min"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
                 android:inputType="numberSigned|numberDecimal" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/min" />
+
+            <EditText
+                android:id="@+id/edit_nθ31_sec"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:inputType="numberSigned|numberDecimal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sec" />
         </LinearLayout>
 
         <LinearLayout

@@ -146,19 +146,19 @@ class Utils {
         s3 = Math.abs(x - x3);
         s2 = h / Math.sin(Math.toRadians(z2));
         s1 = h / Math.sin(Math.toRadians(z1));
-        result += format("s1：%.3f\n", s1);
-        result += format("s2：%.3f\n", s2);
-        result += format("s3：%.3f\n", s3);
+        result += format("s1：%.4f\n", s1);
+        result += format("s2：%.4f\n", s2);
+        result += format("s3：%.4f\n", s3);
         String leftR = null;
         String rightR = null;
         if (x3 > x) {
-            leftR = toDegreesStr(180 + z1);
-            rightR = toDegreesStr(180 - z2);
+            leftR = toDegreesStr(180 + z2);
+            rightR = toDegreesStr(180 - z1);
             result += format("转到左边线角度：%s\n", toDegreesStr(180 + z1));
             result += format("转到右边线角度：%s\n", toDegreesStr(180 - z2));
         } else {
-            leftR = toDegreesStr(360 - z1);
-            rightR = toDegreesStr(z2);
+            leftR = toDegreesStr(360 - z2);
+            rightR = toDegreesStr(z1);
             result += format("转到左边线角度：%s\n", toDegreesStr(360 - z1));
             result += format("转到右边线角度：%s\n", toDegreesStr(z2));
         }
@@ -181,24 +181,24 @@ class Utils {
         z11 = nz11;
         double tempH = h3 + hg;
         leftH = s1 * Math.tan(Math.toRadians(90 - z11)) + tempH;
-        result += format("左边线点高程：%.3f\n", leftH);
-        result1.setLeftH(format("%.3f", leftH));
+        result += format("左边线点高程：%.4f\n", leftH);
+        result1.setLeftH(format("%.4f", leftH));
         if (nz21 == null) {
             //result1.setMsg("右边线天顶角不能为空");
             return result1;
         }
         z21 = nz21;
         rightH = s2 * Math.tan(Math.toRadians(90 - z21)) + tempH;
-        result += format("右边线点高程：%.3f\n", rightH);
-        result1.setRightH(format("%.3f", rightH));
+        result += format("右边线点高程：%.4f\n", rightH);
+        result1.setRightH(format("%.4f", rightH));
         if (nz31 == null) {
             //result1.setMsg("中间线天顶角不能为空");
             return result1;
         }
         z31 = nz31;
         centerH = s3 * Math.tan(Math.toRadians(90 - z31)) + tempH;
-        result += format("中间线点高程：%.3f\n", centerH);
-        result1.setCenterH(format("%.3f", centerH));
+        result += format("中间线点高程：%.4f\n", centerH);
+        result1.setCenterH(format("%.4f", centerH));
         return result1;
     }
 

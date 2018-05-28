@@ -182,7 +182,7 @@ class Utils {
         double tempH = h3 + hg;
         leftH = s1 * Math.tan(Math.toRadians(90 - z11)) + tempH;
         result += format("左边线点高程：%.4f\n", leftH);
-        result1.setLeftH(format("%.4f", leftH));
+        result1.setRightH(format("%.4f", leftH));//20180528左右交换
         if (nz21 == null) {
             //result1.setMsg("右边线天顶角不能为空");
             return result1;
@@ -190,7 +190,7 @@ class Utils {
         z21 = nz21;
         rightH = s2 * Math.tan(Math.toRadians(90 - z21)) + tempH;
         result += format("右边线点高程：%.4f\n", rightH);
-        result1.setRightH(format("%.4f", rightH));
+        result1.setLeftH(format("%.4f", rightH));//20180528左右交换
         if (nz31 == null) {
             //result1.setMsg("中间线天顶角不能为空");
             return result1;

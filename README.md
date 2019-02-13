@@ -1,4 +1,4 @@
 # Calculate
 计算类
 
-app地址下载https://raw.githubusercontent.com/vadonmo/Calculate/master/app/release/app-release.apk
+[下载地址](https://github.com/vadonmo/Calculate/releases)
